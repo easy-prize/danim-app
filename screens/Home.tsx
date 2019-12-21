@@ -7,22 +7,35 @@ import Section from '../components/Section';
 import Separator from '../components/Separator';
 
 import activityImage from '../assets/examples/activity.png';
+import courseImage from '../assets/examples/course.png';
+
 import background from '../assets/headers/home.png';
+import Course from '../components/course/Course';
+
+const exampleCourse = {
+  agency: '다님투어',
+  description: '서울의 상징이라 할 수 있는 대표적인 랜드마크',
+  image: courseImage,
+  title: '남산타워',
+};
 
 const exampleActivities = [
   {
     address: '서울특별시 용산구',
     description: '준호를 좋아하시는 젊은 경하님을 위한.',
+    image: activityImage,
     name: '용산 한 바퀴 투어',
   },
   {
     address: '서울특별시 용산구',
     description: '준호를 좋아하시는 젊은 경하님을 위한.',
+    image: activityImage,
     name: '용산 한 바퀴 투어',
   },
   {
     address: '서울특별시 용산구',
     description: '준호를 좋아하시는 젊은 경하님을 위한.',
+    image: activityImage,
     name: '용산 한 바퀴 투어',
   },
 ];
@@ -50,34 +63,20 @@ export default class HomeScreen extends React.Component {
           name="2019년 12월 21일"
           title=", 당신만을 위한 추천!"
         >
-          {exampleActivities.map((activity, idx) => {
-            return (
-              <Ticket
-                key={`activity-${idx}`}
-                image={activityImage}
-                address={activity.address}
-                name={activity.name}
-                description={activity.description}
-              />
-            );
-          })}
+          <Course
+            course={exampleCourse}
+            activities={exampleActivities}
+          />
         </Section>
         <Separator />
         <Section
           name="선물하기"
           title="로 마음을 전해보세요!"
         >
-          {exampleActivities.map((activity, idx) => {
-            return (
-              <Ticket
-                key={`activity-${idx}`}
-                image={activityImage}
-                address={activity.address}
-                name={activity.name}
-                description={activity.description}
-              />
-            );
-          })}
+          <Course
+            course={exampleCourse}
+            activities={exampleActivities}
+          />
         </Section>
       </Layout>
     );
