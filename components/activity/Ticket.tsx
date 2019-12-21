@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
 
-import Shadow from '../Shadow';
+import Shadow, { shadowStyle } from '../Shadow';
 
 type TicketProps = {
   image: any;
@@ -12,11 +12,15 @@ type TicketProps = {
 
 const Ticket: React.FC<TicketProps> = ({ image, address, name, description }) => {
   return (
-    <Container style={Shadow}>
+    <Container
+      style={shadowStyle}
+    >
       <Line />
-      <Image
-        source={image}
-      />
+      <ImageShadow>
+        <Image
+          source={image}
+        />
+      </ImageShadow>
       <Content>
         <Address>
           {address}
@@ -41,6 +45,7 @@ const Container = styled.View`
   position: relative;
   align-items: center;
   background-color: white;
+  margin-bottom: 10;
 `;
 
 const Line = styled.View`
@@ -55,11 +60,14 @@ const Line = styled.View`
   right: 0;
 `;
 
+const ImageShadow = styled(Shadow)`
+  margin: 15px;
+`;
+
 const Image = styled.Image`
   height: 75;
   width: 75;
   border-radius: 4px;
-  margin: 15px;
 `;
 
 const Content = styled.View`
