@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 
 import background from '../assets/headers/join.jpeg';
 
+import FormButton from '../components/buttons/FormButton';
 import Section from '../components/Section';
 import TextField from '../components/TextField';
 
@@ -21,7 +22,7 @@ const Title: React.FC = () => {
 export default class JoinScreen extends React.Component {
   public render() {
     return (
-      <Layout
+      <FormLayout
         name={<Title />}
         description="반가워요!"
         image={background}
@@ -46,7 +47,31 @@ export default class JoinScreen extends React.Component {
             placeholder="패스워드를 다시 입력해 주세요."
           />
         </Section>
-      </Layout>
+        <ButtonRow>
+          <FormButton
+            text="뒤로 가기"
+            color="#706B89"
+          />
+          <FormButton
+            text="다음으로"
+            color="#6C14FF"
+          />
+        </ButtonRow>
+      </FormLayout>
     );
   }
 }
+
+const FormLayout = styled(Layout)`
+  min-height: 100%;
+  position: relative;
+`;
+
+const ButtonRow = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 20;
+  position: absolute;
+  bottom: 20;
+`;

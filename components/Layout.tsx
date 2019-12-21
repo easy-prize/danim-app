@@ -14,6 +14,7 @@ const contentStyle = {
 
 interface ILayoutProps extends IDefaultHeaderProps {
   children: React.ReactNode;
+  style?: any;
 }
 
 type LayoutState = {
@@ -32,13 +33,14 @@ export default class Layout extends React.Component<ILayoutProps, LayoutState> {
   }
 
   public render() {
-    const { children, ...headerProps } = this.props;
+    const { style, children, ...headerProps } = this.props;
     const { isScrollTop } = this.state;
 
     return (
       <Container
         onScroll={this.onScroll}
         contentContainerStyle={contentStyle}
+        style={style}
       >
         <StatusBar
           translucent={true}
