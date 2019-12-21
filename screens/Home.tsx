@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import { DefaultHeader } from '../components/Header';
 
 import background from '../assets/headers/home.png';
+import Section from '../components/Section';
 
 const Container = styled.View``;
 
@@ -65,6 +66,10 @@ export default class HomeScreen extends React.Component {
   public render() {
     return (
       <Container>
+        <Section
+          name="2019년 12월 21일"
+          title="의 레시피입니다!"
+        />
       </Container>
     );
   }
