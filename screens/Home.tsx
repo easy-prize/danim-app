@@ -11,6 +11,24 @@ import background from '../assets/headers/home.png';
 
 const Container = styled.View``;
 
+const exampleActivities = [
+  {
+    address: '서울특별시 용산구',
+    description: '준호를 좋아하시는 젊은 경하님을 위한.',
+    name: '용산 한 바퀴 투어',
+  },
+  {
+    address: '서울특별시 용산구',
+    description: '준호를 좋아하시는 젊은 경하님을 위한.',
+    name: '용산 한 바퀴 투어',
+  },
+  {
+    address: '서울특별시 용산구',
+    description: '준호를 좋아하시는 젊은 경하님을 위한.',
+    name: '용산 한 바퀴 투어',
+  },
+];
+
 const HeaderTitle: React.FC = () => {
   const Title = React.useMemo(
       () => styled.Text`
@@ -73,12 +91,17 @@ export default class HomeScreen extends React.Component {
           name="2019년 12월 21일"
           title="의 레시피입니다!"
         >
-          <Ticket
-            image={activityImage}
-            address="서울특별시 용산구"
-            name="용산 한 바퀴 투어"
-            description="준호를 좋아하시는 젊은 경하님을 위한."
-          />
+          {exampleActivities.map((activity, idx) => {
+            return (
+              <Ticket
+                key={`activity-${idx}`}
+                image={activityImage}
+                address={activity.address}
+                name={activity.name}
+                description={activity.description}
+              />
+            );
+          })}
         </Section>
       </Container>
     );

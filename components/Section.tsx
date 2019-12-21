@@ -32,6 +32,7 @@ const Title = styled.Text`
   font-size: 20;
   font-family: 'NotoSansKR-Medium';
   line-height: ${1.4 * 20};
+  margin-bottom: 10;
 `;
 
 const Hightlight = styled.Text`
