@@ -8,6 +8,7 @@ import {
   FeedScreen,
   HomeScreen,
   JoinScreen,
+  LoginScreen,
 } from './screens';
 
 const AppNavigator = createStackNavigator(
@@ -16,12 +17,13 @@ const AppNavigator = createStackNavigator(
     Feed: FeedScreen,
     Home: HomeScreen,
     Join: JoinScreen,
+    Login: LoginScreen,
   },
   {
     defaultNavigationOptions: {
       header: null,
     },
-    initialRouteName: 'Feed',
+    initialRouteName: 'Login',
   },
 );
 

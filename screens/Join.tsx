@@ -22,12 +22,16 @@ const Title: React.FC = () => {
   );
 };
 
+type JoinScreenProps = {
+  navigation: any;
+};
+
 type JoinScreenState = {
   step: number,
 };
 
-export default class JoinScreen extends React.Component<{}, JoinScreenState> {
-  constructor(props: any) {
+export default class JoinScreen extends React.Component<JoinScreenProps, JoinScreenState> {
+  constructor(props: JoinScreenProps) {
     super(props);
 
     this.state = {
@@ -55,6 +59,7 @@ export default class JoinScreen extends React.Component<{}, JoinScreenState> {
   }
 
   private renderFormSection({ step }: { step: number }) {
+    const { navigation } = this.props;
     const SectionButtons = this.renderSectionButtons;
     switch (step) {
       case 0:
@@ -126,6 +131,7 @@ export default class JoinScreen extends React.Component<{}, JoinScreenState> {
             <SuccessButton
               text="로그인하러 가기"
               color="#6C14FF"
+              onPress={() => navigation.navigate('Login')}
             />
           </>
         );
@@ -133,11 +139,14 @@ export default class JoinScreen extends React.Component<{}, JoinScreenState> {
   }
 
   private renderSectionButtons() {
+    const { navigation } = this.props;
+
     return (
       <ButtonRow>
         <FormButton
           text="뒤로 가기"
           color="#706B89"
+          onPress={() => navigation.navigate('Login')}
         />
         <FormButton
           text="다음으로"
