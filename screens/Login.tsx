@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Dimensions } from 'react-native';
-import styled from 'styled-components/native';
 
+import { Alert, Dimensions } from 'react-native';
+
+import styled from 'styled-components/native';
+import user from '../api/user/user.service';
+import background from '../assets/headers/join.jpeg';
 import FormButton from '../components/buttons/FormButton';
 import HeaderTitle from '../components/HeaderTitle';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
 import TextField from '../components/TextField';
-
-import background from '../assets/headers/join.jpeg';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -26,6 +27,8 @@ type LoginScreenProps = {
 };
 
 type LoginScreenState = {
+  username: string,
+  password: string,
 };
 
 export default class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
@@ -33,8 +36,11 @@ export default class LoginScreen extends React.Component<LoginScreenProps, Login
     super(props);
 
     this.state = {
+      password: 'P@ssw0rd',
+      username: 'user',
     };
 
+    this.onPressLogin = this.onPressLogin.bind(this);
     this.renderSectionButtons = this.renderSectionButtons.bind(this);
   }
 
@@ -53,18 +59,31 @@ export default class LoginScreen extends React.Component<LoginScreenProps, Login
         >
           <TextField
             label="아이디"
-            value=""
+            value={this.state.username}
             placeholder="아이디를 입력해 주세요."
           />
           <TextField
             label="패스워드"
-            value=""
+            value={this.state.password}
+            isPassword={true}
             placeholder="패스워드를 입력해 주세요."
           />
         </Section>
         <SectionButtons />
       </FormLayout>
     );
+  }
+
+  private async onPressLogin() {
+    const { navigation } = this.props;
+    const isSuccess = await user.login(
+      this.state.username, this.state.password);
+
+    if (!isSuccess) {
+      return Alert.alert('오류', '로그인에 실패하였습니다.');
+    }
+
+    navigation.navigate('Home');
   }
 
   private renderSectionButtons() {
@@ -80,7 +99,7 @@ export default class LoginScreen extends React.Component<LoginScreenProps, Login
         <FormButton
           text="로그인"
           color="#6C14FF"
-          onPress={() => navigation.navigate('Home')}
+          onPress={this.onPressLogin}
         />
       </ButtonRow>
     );

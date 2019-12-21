@@ -5,6 +5,7 @@ type TextFieldProps = {
   label: string,
   value: string,
   placeholder: string,
+  isPassword?: boolean;
   onChange?: () => void,
 };
 
@@ -25,7 +26,7 @@ export default class TextField extends React.Component<TextFieldProps, TextField
   }
 
   public render() {
-    const { label, value = '', placeholder, onChange } = this.props;
+    const { label, value = '', placeholder, onChange, isPassword = false } = this.props;
     const { isFocus } = this.state;
 
     return (
@@ -43,6 +44,8 @@ export default class TextField extends React.Component<TextFieldProps, TextField
           onChangeText={onChange}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
+          // @ts-ignore
+          secureTextEntry={isPassword}
         />
       </Container>
     );

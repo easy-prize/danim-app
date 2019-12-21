@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Axios from '../axios';
 
 export async function login(
@@ -10,7 +10,7 @@ export async function login(
     password, // tslint:disable-line: object-literal-sort-keys
   });
 
-  //AsyncStorage.setItem('YEE_GUN_BIMIL_YEE_YA', data.token);
+  AsyncStorage.setItem('YEE_GUN_BIMIL_YEE_YA', data.token);
   return Math.floor(status / 10) === 20;
 }
 
