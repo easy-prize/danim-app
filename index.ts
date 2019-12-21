@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import { name as appName } from './app.json';
 import {
+  BasketScreen,
   FeedScreen,
   HomeScreen,
   JoinScreen,
@@ -11,6 +12,7 @@ import {
 
 const AppNavigator = createStackNavigator(
   {
+    Basket: BasketScreen,
     Feed: FeedScreen,
     Home: HomeScreen,
     Join: JoinScreen,

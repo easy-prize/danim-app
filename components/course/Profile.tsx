@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 import TextButton from '../buttons/TextButton';
 
@@ -8,14 +8,19 @@ type CourseProfileProps = {
   agency?: string;
   title: string;
   description: string;
+  isUsed?: boolean;
   onPress?: () => void;
 };
 
 const CourseProfile: React.FC<CourseProfileProps> =
-  ({ image, agency = '', title, description, onPress }) => {
+  ({ image, agency = '', title, description, isUsed, onPress }) => {
     return (
-      <Container>
-        <Image source={image} />
+      <Container
+        isUsed={isUsed}
+      >
+        <Image
+          source={image}
+        />
         <Content>
           <Agency>
             {agency}
@@ -29,6 +34,7 @@ const CourseProfile: React.FC<CourseProfileProps> =
           <TextButton
             text="액티비티 열기"
             onPress={onPress}
+            disabled={isUsed}
           />
         </Content>
       </Container>
@@ -37,11 +43,19 @@ const CourseProfile: React.FC<CourseProfileProps> =
 
 export default CourseProfile;
 
-const Container = styled.View`
+type isUsedProps = {
+  isUsed?: boolean;
+};
+
+const Container = styled.View<isUsedProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
+
+  ${({ isUsed }) => isUsed && css`
+    opacity: 0.35;
+  `};
 `;
 
 const Image = styled.Image`
@@ -75,7 +89,4 @@ const Description = styled.Text`
   font-size: 12;
   font-family: 'NotoSansKR-Regular';
   line-height: ${1.4 * 12};
-`;
-
-const OpenButton = styled.TouchableOpacity`
 `;

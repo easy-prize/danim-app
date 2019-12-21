@@ -7,6 +7,7 @@ import CourseProfile from './Profile';
 type CourseProps = {
   course: any;
   activities: any;
+  isUsed?: boolean;
   isCollapsed?: boolean;
 };
 
@@ -29,13 +30,16 @@ export default class Course extends React.Component<CourseProps, CourseState> {
   }
 
   public render() {
-    const { course } = this.props;
+    const { course, isUsed = false } = this.props;
     const ConditionalActivities = this.renderActivities;
 
     return (
-      <Container>
+      <Container
+        disabled={isUsed}
+      >
         <CourseProfile
           onPress={this.onPressOpen}
+          isUsed={isUsed}
           {...course}
         />
         <ConditionalActivities />
