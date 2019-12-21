@@ -32,16 +32,17 @@ export async function getCourseById(id: string): Promise<ICourse> {
   return data;
 }
 
-export async function addActivityById(id: string, activities: string[]) {
+export async function setActivityById(id: string, activities: string[]) {
   const { status } = await Axios
-    .put(`/course/${id}`, { activities });
+    .patch(`/course/${id}`, { activities });
 
   return Math.floor(status / 10) === 20;
 }
 
 export default {
   getMyCourse,
+  // tslint:disable-next-line: object-literal-sort-keys
   createCourse,
   searchCourse,
-  getCourseById
+  getCourseById,
 };

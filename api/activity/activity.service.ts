@@ -41,6 +41,8 @@ export async function getActivitySearch(name: string): Promise<IActivity[]> {
 export default {
   addActivity,
   getMyActivity,
+  // tslint:disable-next-line: object-literal-sort-keys
   getActivityById,
-  getActivitySearch
+  // tslint:disable-next-line: object-literal-sort-keys
+  getActivitySearch,
 };
