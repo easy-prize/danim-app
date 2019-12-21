@@ -43,6 +43,8 @@ export default class HomeScreen extends React.Component {
         name={<Title />}
         description="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 코스랍니다."
         image={background}
+        showNavbar={true}
+        current="house"
       >
         <Section
           name="2019년 12월 21일"

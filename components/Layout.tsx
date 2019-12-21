@@ -20,6 +20,8 @@ const contentStyle = {
 interface ILayoutProps extends IDefaultHeaderProps {
   children: React.ReactNode;
   style?: any;
+  current?: string;
+  showNavbar?: boolean;
 }
 
 type LayoutState = {
@@ -35,11 +37,13 @@ export default class Layout extends React.Component<ILayoutProps, LayoutState> {
     };
 
     this.onScroll = this.onScroll.bind(this);
+    this.renderNavbar = this.renderNavbar.bind(this);
   }
 
   public render() {
     const { style, children, ...headerProps } = this.props;
     const { isScrollTop } = this.state;
+    const ConditionalNavbar = this.renderNavbar;
 
     return (
       <Wrap>
@@ -60,7 +64,7 @@ export default class Layout extends React.Component<ILayoutProps, LayoutState> {
           />
           {children}
         </Container>
-        <Navbar current="house" />
+        <ConditionalNavbar />
       </Wrap>
     );
   }
@@ -70,5 +74,16 @@ export default class Layout extends React.Component<ILayoutProps, LayoutState> {
     this.setState({
       isScrollTop: (y <= 50),
     });
+  }
+
+  private renderNavbar() {
+    const {
+      current = 'home',
+      showNavbar = false,
+    } = this.props;
+    if (showNavbar) {
+      return <Navbar current={current} />;
+    }
+    return (null);
   }
 }
