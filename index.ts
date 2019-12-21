@@ -1,8 +1,9 @@
-import { AppRegistry } from 'react-native';
-import { HomeScreen } from './screens';
 import { createAppContainer } from '@react-navigation/native';
+import { AppRegistry } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
+
 import { name as appName } from './app.json';
+import { HomeScreen } from './screens';
 
 const AppNavigator = createStackNavigator(
   {

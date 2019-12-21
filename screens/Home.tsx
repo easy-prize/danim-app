@@ -51,14 +51,20 @@ const HeaderTitle: React.FC = () => {
 };
 
 export default class HomeScreen extends React.Component {
+  public static navigationOptions = {
+    header: (props: any) => (
+      <DefaultHeader
+        name={<HeaderTitle />}
+        desc="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 레시피예요."
+        image={background}
+        {...props}
+      />
+    ),
+  };
+
   public render() {
     return (
       <Container>
-        <DefaultHeader
-          name={<HeaderTitle />}
-          desc="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 레시피예요."
-          image={background}
-        />
       </Container>
     );
   }

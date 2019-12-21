@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StatusBar } from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -27,6 +28,11 @@ interface IDefaultHeaderProps {
 export const DefaultHeader: React.FC<IDefaultHeaderProps> = ({ name, desc, image }) => {
   return (
     <Header image={image}>
+      <StatusBar
+        translucent={true}
+        backgroundColor="transparent"
+        barStyle="dark-content"
+      />
       <Content>
         {name}
         <Desc>{desc}</Desc>
@@ -51,6 +57,7 @@ const Background = styled.ImageBackground`
 `;
 
 const Content = styled.View`
+  margin-top: 34;
   padding-left: 20;
   padding-right: 20;
   height: 100%;
