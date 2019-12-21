@@ -31,7 +31,7 @@ const navbarIcons = [
 
 type NavbarProps = {
   current: string;
-  navigation: any;
+  navigation?: any;
 };
 
 const Navbar: React.FC<NavbarProps> = ({ current, navigation }) => {

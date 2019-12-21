@@ -1,10 +1,31 @@
 import * as React from 'react';
-import styled from 'styled-components/native';
 
+import Course from '../components/course/Course';
 import HeaderTitle from '../components/HeaderTitle';
 import Layout from '../components/Layout';
+import Section from '../components/Section';
 
 import background from '../assets/headers/feed.jpeg';
+
+import {
+  exampleActivities,
+  exampleCourse,
+} from '../data/example';
+
+const exampleFeeds = [
+  {
+    activities: exampleActivities,
+    course: exampleCourse,
+  },
+  {
+    activities: exampleActivities,
+    course: exampleCourse,
+  },
+  {
+    activities: exampleActivities,
+    course: exampleCourse,
+  },
+];
 
 const Title: React.FC = () => {
   return (
@@ -25,6 +46,20 @@ export default class HomeScreen extends React.Component {
         showNavbar={true}
         current="list"
       >
+        <Section
+          name="인기 코스"
+          title=" 확인하기"
+        >
+          {exampleFeeds.map((feed, idx) => {
+            return (
+              <Course
+                key={`feed-${idx}`}
+                activities={feed.activities}
+                course={feed.course}
+              />
+            );
+          })}
+        </Section>
       </Layout>
     );
   }
