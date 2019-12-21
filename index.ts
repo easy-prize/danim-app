@@ -17,7 +17,7 @@ const AppNavigator = createStackNavigator(
     defaultNavigationOptions: {
       header: null,
     },
-    initialRouteName: 'Join',
+    initialRouteName: 'Home',
   },
 );
 

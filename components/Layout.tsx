@@ -3,13 +3,18 @@ import { StatusBar } from 'react-native';
 import styled from 'styled-components/native';
 
 import { DefaultHeader, IDefaultHeaderProps } from './Header';
+import Navbar from './Navbar';
+
+const Wrap = styled.View`
+  position: relative;
+`;
 
 const Container = styled.ScrollView`
 `;
 
 const contentStyle = {
   flexGrow: 1,
-  paddingBottom: 20,
+  paddingBottom: 75,
 };
 
 interface ILayoutProps extends IDefaultHeaderProps {
@@ -37,23 +42,26 @@ export default class Layout extends React.Component<ILayoutProps, LayoutState> {
     const { isScrollTop } = this.state;
 
     return (
-      <Container
-        onScroll={this.onScroll}
-        contentContainerStyle={contentStyle}
-        style={style}
-      >
-        <StatusBar
-          translucent={true}
-          backgroundColor={isScrollTop ? 'transparent' : 'white'}
-          barStyle="dark-content"
-        />
-        {/*
-        // @ts-ignore */}
-        <DefaultHeader
-          {...headerProps}
-        />
-        {children}
-      </Container>
+      <Wrap>
+        <Container
+          onScroll={this.onScroll}
+          contentContainerStyle={contentStyle}
+          style={style}
+        >
+          <StatusBar
+            translucent={true}
+            backgroundColor={isScrollTop ? 'transparent' : 'white'}
+            barStyle="dark-content"
+          />
+          {/*
+          // @ts-ignore */}
+          <DefaultHeader
+            {...headerProps}
+          />
+          {children}
+        </Container>
+        <Navbar current="house" />
+      </Wrap>
     );
   }
 
