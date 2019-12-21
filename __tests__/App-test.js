@@ -32,13 +32,13 @@ test('엑티비티 추가', async () => {
       '다날 여행사'
     )
   )
-}); 
+});
 
 test('내 엑티비티', async () => {
   console.log(
     await Activity.getMyActivity()
   );
-}); 
+});
 
 test('엑티비티 가져오기', async () => {
   console.log(

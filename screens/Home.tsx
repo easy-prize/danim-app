@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import Ticket from '../components/activity/Ticket';
 import HeaderTitle from '../components/HeaderTitle';
 import Layout from '../components/Layout';
 import Section from '../components/Section';

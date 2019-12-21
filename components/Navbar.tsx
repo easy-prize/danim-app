@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { withNavigationFocus } from 'react-navigation';
 import styled from 'styled-components/native';
 
 const navbarIcons = [
@@ -6,35 +7,41 @@ const navbarIcons = [
     active: require('../assets/icons/active/house.png'),
     default: require('../assets/icons/default/house.png'),
     name: 'house',
+    routeName: 'Home',
   },
   {
     active: require('../assets/icons/active/list.png'),
     default: require('../assets/icons/default/list.png'),
     name: 'list',
+    routeName: 'Feed',
   },
   {
     active: require('../assets/icons/active/basket.png'),
     default: require('../assets/icons/default/basket.png'),
     name: 'basket',
+    routeName: 'Basket',
   },
   {
     active: require('../assets/icons/active/user.png'),
     default: require('../assets/icons/default/user.png'),
     name: 'user',
+    routeName: 'Mypage',
   },
 ];
 
 type NavbarProps = {
   current: string;
+  navigation: any;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ current }) => {
+const Navbar: React.FC<NavbarProps> = ({ current, navigation }) => {
   return (
     <Container>
       {navbarIcons.map((icon, idx) => {
         return (
           <Item
             key={idx}
+            onPress={() => navigation.navigate(icon.routeName)}
           >
             <Icon
               source={(current === icon.name) ? icon.active : icon.default}
@@ -47,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ current }) => {
   );
 };
 
-export default Navbar;
+export default withNavigationFocus(Navbar);
 
 const Container = styled.View`
   display: flex;

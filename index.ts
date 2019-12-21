@@ -4,12 +4,14 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import { name as appName } from './app.json';
 import {
+  FeedScreen,
   HomeScreen,
   JoinScreen,
 } from './screens';
 
 const AppNavigator = createStackNavigator(
   {
+    Feed: FeedScreen,
     Home: HomeScreen,
     Join: JoinScreen,
   },
@@ -17,7 +19,7 @@ const AppNavigator = createStackNavigator(
     defaultNavigationOptions: {
       header: null,
     },
-    initialRouteName: 'Home',
+    initialRouteName: 'Feed',
   },
 );
 
