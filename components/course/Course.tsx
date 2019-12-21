@@ -1,21 +1,23 @@
 import * as React from 'react';
-import styled from 'styled-components/native';
+import { withNavigationFocus } from 'react-navigation';
 
-import Ticket from '../activity/Ticket';
 import CourseProfile from './Profile';
+import Ticket from '../activity/Ticket';
+import styled from 'styled-components/native';
 
 type CourseProps = {
   course: any;
   activities: any;
   isUsed?: boolean;
   isCollapsed?: boolean;
+  navigation?: any;
 };
 
 type CourseState = {
   isCollapsed: boolean;
 };
 
-export default class Course extends React.Component<CourseProps, CourseState> {
+class Course extends React.Component<CourseProps, CourseState> {
   constructor(props: CourseProps) {
     super(props);
 
@@ -30,12 +32,13 @@ export default class Course extends React.Component<CourseProps, CourseState> {
   }
 
   public render() {
-    const { course, isUsed = false } = this.props;
+    const { course, isUsed = false, navigation } = this.props;
     const ConditionalActivities = this.renderActivities;
 
     return (
       <Container
         disabled={isUsed}
+        onPress={() => navigation.navigate('Info')}
       >
         <CourseProfile
           onPress={this.onPressOpen}
@@ -78,6 +81,8 @@ export default class Course extends React.Component<CourseProps, CourseState> {
     );
   }
 }
+
+export default withNavigationFocus(Course);
 
 const Container = styled.TouchableOpacity`
   margin-top: 5;
