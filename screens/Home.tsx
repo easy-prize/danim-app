@@ -4,12 +4,12 @@ import styled from 'styled-components/native';
 import { DefaultHeader } from '../components/Header';
 
 import Ticket from '../components/activity/Ticket';
+import Layout from '../components/Layout';
 import Section from '../components/Section';
+import Separator from '../components/Separator';
 
 import activityImage from '../assets/examples/activity.png';
 import background from '../assets/headers/home.png';
-
-const Container = styled.View``;
 
 const exampleActivities = [
   {
@@ -62,10 +62,10 @@ const HeaderTitle: React.FC = () => {
 
   return (
     <>
-      <Title>오늘의 레시피</Title>
+      <Title>오늘의 여행</Title>
       <Primary.Container>
         <Primary.Title>
-          5,100원
+          서울특별시 용산구
         </Primary.Title>
       </Primary.Container>
     </>
@@ -74,22 +74,20 @@ const HeaderTitle: React.FC = () => {
 
 export default class HomeScreen extends React.Component {
   public static navigationOptions = {
-    header: (props: any) => (
-      <DefaultHeader
-        name={<HeaderTitle />}
-        description="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 레시피예요."
-        image={background}
-        {...props}
-      />
-    ),
+    header: null,
   };
 
   public render() {
     return (
-      <Container>
+      <Layout>
+        <DefaultHeader
+          name={<HeaderTitle />}
+          description="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 코스랍니다."
+          image={background}
+        />
         <Section
           name="2019년 12월 21일"
-          title="의 레시피입니다!"
+          title=", 당신만을 위한 추천!"
         >
           {exampleActivities.map((activity, idx) => {
             return (
@@ -103,7 +101,24 @@ export default class HomeScreen extends React.Component {
             );
           })}
         </Section>
-      </Container>
+        <Separator />
+        <Section
+          name="선물하기"
+          title="로 마음을 전해보세요!"
+        >
+          {exampleActivities.map((activity, idx) => {
+            return (
+              <Ticket
+                key={`activity-${idx}`}
+                image={activityImage}
+                address={activity.address}
+                name={activity.name}
+                description={activity.description}
+              />
+            );
+          })}
+        </Section>
+      </Layout>
     );
   }
 }
