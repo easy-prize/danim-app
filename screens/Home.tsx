@@ -1,8 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
 
-import { DefaultHeader } from '../components/Header';
-
 import Ticket from '../components/activity/Ticket';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
@@ -79,12 +77,11 @@ export default class HomeScreen extends React.Component {
 
   public render() {
     return (
-      <Layout>
-        <DefaultHeader
-          name={<HeaderTitle />}
-          description="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 코스랍니다."
-          image={background}
-        />
+      <Layout
+        name={<HeaderTitle />}
+        description="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 코스랍니다."
+        image={background}
+      >
         <Section
           name="2019년 12월 21일"
           title=", 당신만을 위한 추천!"

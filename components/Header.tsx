@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { StatusBar } from 'react-native';
-
 import styled from 'styled-components/native';
 
 interface IHeaderProps {
@@ -19,7 +17,7 @@ const Header: React.FC<IHeaderProps> = ({ children = '', image }) => {
 
 export default Header;
 
-interface IDefaultHeaderProps {
+export interface IDefaultHeaderProps {
   name: React.ReactNode;
   description: string;
   image: any;
@@ -28,11 +26,6 @@ interface IDefaultHeaderProps {
 export const DefaultHeader: React.FC<IDefaultHeaderProps> = ({ name, description, image }) => {
   return (
     <Header image={image}>
-      <StatusBar
-        translucent={true}
-        backgroundColor="transparent"
-        barStyle="dark-content"
-      />
       <Content>
         {name}
         <Description>
