@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* DanimAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DanimAppTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -20,6 +19,8 @@
 		30945A00E22A7BFFB464212E /* libPods-DanimAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE4AA3A2B436FF63902AC9F6 /* libPods-DanimAppTests.a */; };
 		51541C3C322F239EC9E763B2 /* libPods-DanimApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EB91D8D00741665BD57EAA /* libPods-DanimApp-tvOSTests.a */; };
 		D4F8D757FD2D153414512344 /* libPods-DanimApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3458601EC15142642F5DD3BD /* libPods-DanimApp.a */; };
+		B453431DE3F3449BBF0F3C20 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADD1700CC8B4DADBAC1F38A /* NotoSansKR-Medium.otf */; };
+		D80E5C7D1699413EAE7BCDC6 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A035691248E1451C9B5AA378 /* NotoSansKR-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EE4AA3A2B436FF63902AC9F6 /* libPods-DanimAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DanimAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74523104FE0025716AEC9C7 /* Pods-DanimApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanimApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-DanimApp-tvOSTests/Pods-DanimApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9ADD1700CC8B4DADBAC1F38A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Medium.otf"; path = "../assets/fonts/NotoSansKR-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A035691248E1451C9B5AA378 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Regular.otf"; path = "../assets/fonts/NotoSansKR-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F09DBB4783D14079BC2D0F0E /* Pods */,
+				FEB3B8E57E46489AAD0ABD82 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +201,16 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		FEB3B8E57E46489AAD0ABD82 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				9ADD1700CC8B4DADBAC1F38A /* NotoSansKR-Medium.otf */,
+				A035691248E1451C9B5AA378 /* NotoSansKR-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -285,7 +299,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -338,6 +352,8 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				B453431DE3F3449BBF0F3C20 /* NotoSansKR-Medium.otf in Resources */,
+				D80E5C7D1699413EAE7BCDC6 /* NotoSansKR-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
