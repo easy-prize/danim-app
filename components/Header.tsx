@@ -21,11 +21,11 @@ export default Header;
 
 interface IDefaultHeaderProps {
   name: React.ReactNode;
-  desc: string;
+  description: string;
   image: any;
 }
 
-export const DefaultHeader: React.FC<IDefaultHeaderProps> = ({ name, desc, image }) => {
+export const DefaultHeader: React.FC<IDefaultHeaderProps> = ({ name, description, image }) => {
   return (
     <Header image={image}>
       <StatusBar
@@ -35,7 +35,9 @@ export const DefaultHeader: React.FC<IDefaultHeaderProps> = ({ name, desc, image
       />
       <Content>
         {name}
-        <Desc>{desc}</Desc>
+        <Description>
+          {description}
+        </Description>
       </Content>
     </Header>
   );
@@ -65,7 +67,7 @@ const Content = styled.View`
   justify-content: center;
 `;
 
-const Desc = styled.Text`
+const Description = styled.Text`
   color: #6E00FF;
   margin-top: 10;
   font-size: 12;

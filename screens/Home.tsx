@@ -3,8 +3,11 @@ import styled from 'styled-components/native';
 
 import { DefaultHeader } from '../components/Header';
 
-import background from '../assets/headers/home.png';
+import Ticket from '../components/activity/Ticket';
 import Section from '../components/Section';
+
+import activityImage from '../assets/examples/activity.png';
+import background from '../assets/headers/home.png';
 
 const Container = styled.View``;
 
@@ -56,7 +59,7 @@ export default class HomeScreen extends React.Component {
     header: (props: any) => (
       <DefaultHeader
         name={<HeaderTitle />}
-        desc="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 레시피예요."
+        description="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 레시피예요."
         image={background}
         {...props}
       />
@@ -69,7 +72,14 @@ export default class HomeScreen extends React.Component {
         <Section
           name="2019년 12월 21일"
           title="의 레시피입니다!"
-        />
+        >
+          <Ticket
+            image={activityImage}
+            address="서울특별시 용산구"
+            name="용산 한 바퀴 투어"
+            description="준호를 좋아하시는 젊은 경하님을 위한."
+          />
+        </Section>
       </Container>
     );
   }
