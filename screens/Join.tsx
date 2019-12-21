@@ -1,14 +1,18 @@
 import * as React from 'react';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 import HeaderTitle from '../components/HeaderTitle';
 import Layout from '../components/Layout';
 
-import background from '../assets/headers/join.jpeg';
-
 import FormButton from '../components/buttons/FormButton';
 import Section from '../components/Section';
 import TextField from '../components/TextField';
+
+import background from '../assets/headers/join.jpeg';
+import successIllust from '../assets/illusts/success.png';
+
+const windowWidth = Dimensions.get('window').width;
 
 const Title: React.FC = () => {
   return (
@@ -108,10 +112,23 @@ export default class JoinScreen extends React.Component<{}, JoinScreenState> {
         );
       default:
         return (
-          <Section
-            name="야호!"
-            title=" 회원가입 끝"
-          />
+          <>
+            <Section
+              name="야호!"
+              title=" 회원가입 끝"
+            >
+              <SuccessIllust
+                source={successIllust}
+              />
+              <SuccessText>
+                이제 로그인을 진행할 수 있어요.
+              </SuccessText>
+            </Section>
+            <SuccessButton
+              text="로그인하러 가기"
+              color="#6C14FF"
+            />
+          </>
         );
     }
   }
@@ -152,6 +169,28 @@ const ButtonRow = styled.View`
   flex-direction: row;
   justify-content: space-between;
   padding-left: 20;
+  position: absolute;
+  bottom: 20;
+`;
+
+const SuccessIllust = styled.Image`
+  height: 300;
+  width: 300;
+  align-self: center;
+`;
+
+const SuccessText = styled.Text`
+  color: #15083B;
+  font-size: 18;
+  font-family: 'NotoSansKR-Medium';
+  line-height: ${1.4 * 18};
+  align-self: center;
+`;
+
+const SuccessButton = styled(FormButton)`
+  width: ${windowWidth - 40};
+  margin-left: 20;
+  margin-right: 20;
   position: absolute;
   bottom: 20;
 `;
