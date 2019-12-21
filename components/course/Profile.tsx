@@ -31,11 +31,21 @@ const CourseProfile: React.FC<CourseProfileProps> =
           <Description>
             {description}
           </Description>
-          <TextButton
-            text="액티비티 열기"
-            onPress={onPress}
-            disabled={isUsed}
-          />
+          {(() => {
+            if (!isUsed) {
+              return (
+                <TextButton
+                  text="액티비티 열기"
+                  onPress={onPress}
+                />
+              );
+            }
+            return (
+              <UsedText>
+                이미 사용한 상품입니다.
+              </UsedText>
+            );
+          })()}
         </Content>
       </Container>
     );
@@ -89,4 +99,11 @@ const Description = styled.Text`
   font-size: 12;
   font-family: 'NotoSansKR-Regular';
   line-height: ${1.4 * 12};
+`;
+
+const UsedText = styled.Text`
+  color: black;
+  font-size: 15;
+  font-family: 'NotoSansKR-Medium';
+  line-height: ${1.4 * 15};
 `;
