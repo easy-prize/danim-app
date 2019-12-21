@@ -7,6 +7,7 @@ import {
   BasketScreen,
   FeedScreen,
   HomeScreen,
+  InfoScreen,
   JoinScreen,
   LoginScreen,
 } from './screens';
@@ -16,6 +17,7 @@ const AppNavigator = createStackNavigator(
     Basket: BasketScreen,
     Feed: FeedScreen,
     Home: HomeScreen,
+    Info: InfoScreen,
     Join: JoinScreen,
     Login: LoginScreen,
   },
@@ -23,7 +25,7 @@ const AppNavigator = createStackNavigator(
     defaultNavigationOptions: {
       header: null,
     },
-    initialRouteName: 'Login',
+    initialRouteName: 'Info',
   },
 );
 

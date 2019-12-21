@@ -4,12 +4,13 @@ import styled from 'styled-components/native';
 type SectionProps = {
   name: string;
   title: string;
+  style?: any;
   children?: React.ReactNode;
 };
 
-const Section: React.FC<SectionProps> = ({ name, title, children }) => {
+const Section: React.FC<SectionProps> = ({ name, title, style, children }) => {
   return (
-    <Container>
+    <Container style={style}>
       <Title>
         <Hightlight>{name}</Hightlight>
         {title}
