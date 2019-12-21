@@ -10,10 +10,31 @@ import Separator from '../components/Separator';
 
 import background from '../assets/headers/channel.jpeg';
 
-import {
-  exampleActivities,
-  exampleCourse,
-} from '../data/example';
+import courseImage1 from '../assets/examples/0.jpeg';
+import activityImage1 from '../assets/examples/2.jpeg';
+import activityImage2 from '../assets/examples/3.jpeg';
+
+const exampleActivities = [
+  {
+    address: '강원도 태백시 통동',
+    description: '경치가 정말 좋은 산.',
+    image: activityImage1,
+    name: '동백산',
+  },
+  {
+    address: '부산광역시 해운대구',
+    description: '완전 아름다운 바다.',
+    image: activityImage2,
+    name: '해운대 투어',
+  },
+];
+
+const exampleCourse = {
+  agency: '다님투어',
+  description: '젊음의 도시, 부산으로 떠나요!',
+  image: courseImage1,
+  title: '환상적인 부산여행',
+};
 
 type InfoScreenProps = {
 };

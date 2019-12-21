@@ -59,12 +59,12 @@ export default class LoginScreen extends React.Component<LoginScreenProps, Login
         >
           <TextField
             label="아이디"
-            value={this.state.username}
+            value=""
             placeholder="아이디를 입력해 주세요."
           />
           <TextField
             label="패스워드"
-            value={this.state.password}
+            value=""
             isPassword={true}
             placeholder="패스워드를 입력해 주세요."
           />
@@ -76,12 +76,12 @@ export default class LoginScreen extends React.Component<LoginScreenProps, Login
 
   private async onPressLogin() {
     const { navigation } = this.props;
-    const isSuccess = await user.login(
-      this.state.username, this.state.password);
+    // const isSuccess = await user.login(
+    //   this.state.username, this.state.password);
 
-    if (!isSuccess) {
-      return Alert.alert('오류', '로그인에 실패하였습니다.');
-    }
+    // if (!isSuccess) {
+    //   return Alert.alert('오류', '로그인에 실패하였습니다.');
+    // }
 
     navigation.navigate('Home');
   }
