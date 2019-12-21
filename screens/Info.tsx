@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 
 import Ticket from '../components/activity/Ticket';
@@ -13,7 +14,6 @@ import {
   exampleActivities,
   exampleCourse,
 } from '../data/example';
-import { View } from 'react-native';
 
 type InfoScreenProps = {
 };
@@ -28,7 +28,7 @@ export default class InfoScreen extends React.Component<InfoScreenProps, InfoScr
         type="코스"
         image={background}
         showNavbar={true}
-        current="info"
+        current="list"
       >
         <Container>
           <Product>
