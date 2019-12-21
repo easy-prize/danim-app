@@ -5,13 +5,14 @@ export async function login(
   username: string,
   password: string,
 ) {
-  const { statusCode, data } = await Axios.post('/user/auth', {
+  const { status, data } = await Axios.post('/user/auth', {
     username,
     password, // tslint:disable-line: object-literal-sort-keys
   });
 
-  AsyncStorage.setItem('YEE_GUN_BIMIL_YEE_YA', data.jwt);
-  return Math.floor(statusCode / 10) === 20;
+  console.log(data.token);
+  //AsyncStorage.setItem('YEE_GUN_BIMIL_YEE_YA', data.token);
+  return Math.floor(status / 10) === 20;
 }
 
 export async function signup(
