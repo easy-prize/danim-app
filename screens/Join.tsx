@@ -19,46 +19,126 @@ const Title: React.FC = () => {
   );
 };
 
-export default class JoinScreen extends React.Component {
+type JoinScreenState = {
+  step: number,
+};
+
+export default class JoinScreen extends React.Component<{}, JoinScreenState> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      step: 0,
+    };
+
+    this.renderFormSection = this.renderFormSection.bind(this);
+    this.renderSectionButtons = this.renderSectionButtons.bind(this);
+    this.onPressNext = this.onPressNext.bind(this);
+  }
+
   public render() {
+    const { step } = this.state;
+    const FormSection = this.renderFormSection;
+
     return (
       <FormLayout
         name={<Title />}
         description="반가워요!"
         image={background}
       >
-        <Section
-          name="기본 정보"
-          title="를 입력해 주세요."
-        >
-          <TextField
-            label="아이디"
-            value=""
-            placeholder="아이디를 입력해 주세요."
-          />
-          <TextField
-            label="패스워드"
-            value=""
-            placeholder="패스워드를 입력해 주세요."
-          />
-          <TextField
-            label="패스워드 확인"
-            value=""
-            placeholder="패스워드를 다시 입력해 주세요."
-          />
-        </Section>
-        <ButtonRow>
-          <FormButton
-            text="뒤로 가기"
-            color="#706B89"
-          />
-          <FormButton
-            text="다음으로"
-            color="#6C14FF"
-          />
-        </ButtonRow>
+        <FormSection step={step} />
       </FormLayout>
     );
+  }
+
+  private renderFormSection({ step }: { step: number }) {
+    const SectionButtons = this.renderSectionButtons;
+    switch (step) {
+      case 0:
+        return (
+          <>
+            <Section
+              name="새로운 계정"
+              title="을 만들어요."
+            >
+              <TextField
+                label="아이디"
+                value=""
+                placeholder="아이디를 입력해 주세요."
+              />
+              <TextField
+                label="패스워드"
+                value=""
+                placeholder="패스워드를 입력해 주세요."
+              />
+              <TextField
+                label="패스워드 확인"
+                value=""
+                placeholder="패스워드를 다시 입력해 주세요."
+              />
+            </Section>
+            <SectionButtons />
+          </>
+        );
+      case 1:
+        return (
+          <>
+            <Section
+              name="기본 정보"
+              title="를 입력해 주세요."
+            >
+              <TextField
+                label="이메일"
+                value=""
+                placeholder="이메일을 입력해 주세요."
+              />
+              <TextField
+                label="이름"
+                value=""
+                placeholder="이름을 입력해 주세요."
+              />
+              <TextField
+                label="생년월일"
+                value=""
+                placeholder="생년월일을 입력해 주세요."
+              />
+            </Section>
+            <SectionButtons />
+          </>
+        );
+      default:
+        return (
+          <Section
+            name="야호!"
+            title=" 회원가입 끝"
+          />
+        );
+    }
+  }
+
+  private renderSectionButtons() {
+    return (
+      <ButtonRow>
+        <FormButton
+          text="뒤로 가기"
+          color="#706B89"
+        />
+        <FormButton
+          text="다음으로"
+          color="#6C14FF"
+          onPress={this.onPressNext}
+        />
+      </ButtonRow>
+    );
+  }
+
+  private onPressNext() {
+    const { step } = this.state;
+    if (step < 2) {
+      this.setState(prevState => ({
+        step: prevState.step + 1,
+      }));
+    }
   }
 }
 

@@ -4,10 +4,10 @@ import styled from 'styled-components/native';
 import menuIcon from '../../assets/icons/filter.png';
 
 type MenuButtonProps = {
-  onClick: () => void;
+  onPress: () => void;
 };
 
-const MenuButton: React.FC<MenuButtonProps> = ({ onClick }) => {
+const MenuButton: React.FC<MenuButtonProps> = ({ onPress }) => {
   return (
     <Icon source={menuIcon} />
   );

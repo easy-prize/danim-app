@@ -4,14 +4,14 @@ import styled, { css } from 'styled-components/native';
 type FormButtonProps = {
   text: string;
   color: string;
-  onClick?: () => void;
+  onPress?: () => void;
 };
 
-const FormButton: React.FC<FormButtonProps> = ({ text, color, onClick }) => {
+const FormButton: React.FC<FormButtonProps> = ({ text, color, onPress }) => {
   return (
     <Button
       color={color}
-      onPress={onClick}
+      onPress={onPress}
     >
       <Text>{text}</Text>
     </Button>
