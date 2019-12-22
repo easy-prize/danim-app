@@ -17,7 +17,7 @@ export async function addActivity(
   return Math.floor(status / 10) === 20;
 }
 
-export async function getMyActivity() {
+export async function getMyActivity(): Promise<IActivity[]> {
   const { data } = await Axios
     .get<IActivity[]>('/activity');
 
@@ -31,9 +31,9 @@ export async function getActivityById(id: string) {
   return data;
 }
 
-export async function getActivitySearch(name: string) {
+export async function getActivitySearch(name: string): Promise<IActivity[]> {
   const { data } = await Axios
-    .get<IActivity>(`/activity/search/${encodeURI(name)}`);
+    .get<IActivity[]>(`/activity/search/${encodeURI(name)}`);
 
   return data;
 }

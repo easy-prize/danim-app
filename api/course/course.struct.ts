@@ -7,6 +7,7 @@ import IUser from '../user/user.struct';
 export default interface ICourse {
   name: string;
   activities: [IActivity];
+  body: string; /* 설명 */
   author: IUser;
   reviews: [IReview];
   thumbnails: [IThumbnail];
