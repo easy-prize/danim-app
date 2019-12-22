@@ -4,7 +4,7 @@ import { Alert, Dimensions } from 'react-native';
 
 import styled from 'styled-components/native';
 import user from '../api/user/user.service';
-import background from '../assets/headers/join.jpeg';
+import background from '../assets/headers/login.jpeg';
 import FormButton from '../components/buttons/FormButton';
 import HeaderTitle from '../components/HeaderTitle';
 import Layout from '../components/Layout';

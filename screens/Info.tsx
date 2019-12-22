@@ -68,7 +68,7 @@ export default class InfoScreen extends React.Component<InfoScreenProps, InfoScr
         </Container>
         <Separator />
         <Section
-          name="남산타워"
+          name="환상적인 부산여행"
           title="의 액티비티 목록"
           style={{
             backgroundColor: '#EFF1F5',
