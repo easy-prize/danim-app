@@ -1,15 +1,18 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
 
+import TextButton from '../buttons/TextButton';
+
 type CourseProfileProps = {
   image: any;
   agency?: string;
   title: string;
   description: string;
+  onPress?: () => void;
 };
 
 const CourseProfile: React.FC<CourseProfileProps> =
-  ({ image, agency = '', title, description }) => {
+  ({ image, agency = '', title, description, onPress }) => {
     return (
       <Container>
         <Image source={image} />
@@ -23,6 +26,10 @@ const CourseProfile: React.FC<CourseProfileProps> =
           <Description>
             {description}
           </Description>
+          <TextButton
+            text="액티비티 열기"
+            onPress={onPress}
+          />
         </Content>
       </Container>
     );
@@ -68,4 +75,7 @@ const Description = styled.Text`
   font-size: 12;
   font-family: 'NotoSansKR-Regular';
   line-height: ${1.4 * 12};
+`;
+
+const OpenButton = styled.TouchableOpacity`
 `;

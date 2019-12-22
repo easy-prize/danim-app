@@ -2,10 +2,9 @@ import * as React from 'react';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
+import FormButton from '../components/buttons/FormButton';
 import HeaderTitle from '../components/HeaderTitle';
 import Layout from '../components/Layout';
-
-import FormButton from '../components/buttons/FormButton';
 import Section from '../components/Section';
 import TextField from '../components/TextField';
 

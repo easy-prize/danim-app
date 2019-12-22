@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 
 const Wrap = styled.View`
   position: relative;
+  flex: 1;
 `;
 
 const Container = styled.ScrollView`
