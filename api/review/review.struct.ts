@@ -4,4 +4,4 @@ export default interface IReview {
   title: string;
   content: string;
   author: IUser;
-};
+}

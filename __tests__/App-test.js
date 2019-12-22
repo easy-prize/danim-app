@@ -1,14 +1,23 @@
-/**
- * @format
- */
+import User from '../api/user/user.service';
 
-import 'react-native';
-import React from 'react';
-import App from '../App';
+test('회원가입', async () => {
+  console.log(
+    await User.signup(
+      'userId',
+      'PASSW0RD',
+      '다날귀욤',
+      'danieluhm2004@gmail.com',
+      '01095637570',
+      'YXNkZg=='
+      )
+    );
+});
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
-
-it('renders correctly', () => {
-  renderer.create(<App />);
+test('로그인', async () => {
+  console.log(
+    await User.login(
+      'userId',
+      'PASSW0RD',
+      )
+    );
 });
