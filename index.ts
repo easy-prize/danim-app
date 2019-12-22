@@ -3,16 +3,21 @@ import { AppRegistry } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import { name as appName } from './app.json';
-import { HomeScreen } from './screens';
+import {
+  HomeScreen,
+  JoinScreen,
+} from './screens';
 
 const AppNavigator = createStackNavigator(
   {
-    Home: {
-      screen: HomeScreen,
-    },
+    Home: HomeScreen,
+    Join: JoinScreen,
   },
   {
-    initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      header: null,
+    },
+    initialRouteName: 'Join',
   },
 );
 

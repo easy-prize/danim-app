@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from 'styled-components/native';
 
 import Ticket from '../components/activity/Ticket';
+import HeaderTitle from '../components/HeaderTitle';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
 import Separator from '../components/Separator';
@@ -27,58 +27,20 @@ const exampleActivities = [
   },
 ];
 
-const HeaderTitle: React.FC = () => {
-  const Title = React.useMemo(
-      () => styled.Text`
-        color: #15083B;
-        font-size: 32;
-        font-family: 'NotoSansKR-Medium';
-        line-height: ${1.4 * 32};
-      `,
-      [],
-    );
-  const Primary = {
-    Container: React.useMemo(
-      () => styled.View`
-        background-color: #6E00FF;
-        align-self: flex-start;
-        padding-left: 5;
-        padding-right: 5;
-      `,
-      [],
-    ),
-    Title: React.useMemo(
-      () => styled.Text`
-        color: white;
-        font-size: 32;
-        font-family: 'NotoSansKR-Medium';
-        line-height: ${1.4 * 32};
-      `,
-      [],
-    ),
-  };
-
+const Title: React.FC = () => {
   return (
-    <>
-      <Title>오늘의 여행</Title>
-      <Primary.Container>
-        <Primary.Title>
-          서울특별시 용산구
-        </Primary.Title>
-      </Primary.Container>
-    </>
+    <HeaderTitle
+      text="오늘의 여행"
+      primary="서울특별시 용산구"
+    />
   );
 };
 
 export default class HomeScreen extends React.Component {
-  public static navigationOptions = {
-    header: null,
-  };
-
   public render() {
     return (
       <Layout
-        name={<HeaderTitle />}
+        name={<Title />}
         description="AI 기술로 저희가 직접 생성한, 여러분에게 딱 맞는 코스랍니다."
         image={background}
       >
